@@ -1,1 +1,1 @@
-# cube-admin-web
+# frestream-admin-web

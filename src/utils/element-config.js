@@ -12,7 +12,9 @@ import {Container,
     MenuItem,
     MenuItemGroup,
     Table,
-    TableColumn
+    TableColumn,
+    Pagination,
+    Input
 } from 'element-ui'
 
 const cs = [
@@ -30,7 +32,9 @@ const cs = [
     MenuItem,
     MenuItemGroup,
     Table,
-    TableColumn
+    TableColumn,
+    Pagination,
+    Input
 ]
 
 export default {
