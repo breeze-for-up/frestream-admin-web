@@ -6,7 +6,10 @@ export default new VueRouter({
 	routes:[
 		{
 			path:'/',
-			component:Dashboard
+			component: Dashboard,
+			children:[
+				{path: 'user', component: () => import('@/views/system/user')}
+			]
 		}
 	]
 })

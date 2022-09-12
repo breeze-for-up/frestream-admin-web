@@ -3,7 +3,8 @@ import { Notification, MessageBox, Message, Loading } from 'element-ui'
 
 let loadingInstance = null;
 const request = axios.create({
-	baseURL: "http://localhost:3000/", // url = base url + request url
+	// 使用devServer代理必须注释此行
+	// baseURL: "http://localhost:3000/", // url = base url + request url
 	timeout: 1000, // request timeout
   })
 

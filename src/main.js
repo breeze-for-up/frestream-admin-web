@@ -6,10 +6,10 @@ import '@/assets/styles/index.less'
 import App from './App.vue'
 import hunru from './mixin'
 import plugins from './plugins'
-import store from './store/index-modules'
+import store from './store/index'
 import VueRouter from 'vue-router'
 import router from '@/router'
-import {request} from '@/utils/request.js'
+import request from '@/utils/request.js'
 
 
 Vue.config.productionTip = false;
