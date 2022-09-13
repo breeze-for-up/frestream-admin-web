@@ -35,6 +35,7 @@
       >
     </div>
     <el-table :data="tableData" border>
+      <el-table-column type="selection" width="60"> </el-table-column>
       <el-table-column
         prop="userCode"
         label="用户编码"
@@ -54,10 +55,10 @@
       <el-table-column prop="address" label="地址"> </el-table-column>
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text"
+          <el-button type="text"
             >详情</el-button
           >
-          <el-button type="text">编辑</el-button>
+          <el-button type="text" @click="editRow(scope.row.userCode)">编辑</el-button>
           <el-button type="text">删除</el-button>
         </template>
       </el-table-column>
@@ -75,7 +76,7 @@
 </template>
 
 <script>
-import { listUser } from "@/api/system/user.js";
+import { listUser, editUser, deleteUser } from "@/api/system/user.js";
 
 export default {
   name: "UserList",
@@ -105,6 +106,15 @@ export default {
     resetDataFilter() {
       this.dataFilter = {};
     },
+	// 行编辑
+	editRow(userCode) {
+		editUser({
+			userCode: userCode,
+			type: 1
+		}).then(res => {
+			console.log('用户编辑success');
+		})
+	},
   },
   created() {
     this.loadUserList();

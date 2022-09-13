@@ -6,30 +6,30 @@ const request = axios.create({
 	// 使用devServer代理必须注释此行
 	// baseURL: "http://localhost:3000/", // url = base url + request url
 	timeout: 1000, // request timeout
-  })
+})
 
-  // 请求拦截器
-  request.interceptors.request.use(
+// 请求拦截器
+request.interceptors.request.use(
 	config => {
 		loadingInstance = Loading.service({
 			lock: true,
 			text: 'loading...'
 		})
 		return config
- 	},
+	},
 	error => {
-		console.log('request异常: ', error); 
+		console.log('request异常: ', error);
 		return Promise.reject(error)
 	}
-  )
+)
 
-  // 响应拦截器
-  request.interceptors.response.use(
+// 响应拦截器
+request.interceptors.response.use(
 	response => {
 		loadingInstance.close()
 		return response.data
-  	}, 
-  	error => {
+	},
+	error => {
 		console.log('response异常: ', error)
 		const msg = error.Message !== undefined ? error.Message : ''
 		Message({
@@ -39,7 +39,7 @@ const request = axios.create({
 		})
 		loadingInstance.close()
 		return Promise.reject(error)
-  	}
-  )
+	}
+)
 
-  export default request;
+export default request;
