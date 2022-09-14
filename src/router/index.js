@@ -7,7 +7,9 @@ export default new VueRouter({
 			path:'/',
 			component: () => import('@/views/dashboard'),
 			children:[
-				{path: 'user', component: () => import('@/views/system/user')}
+				{path: 'user', component: () => import('@/views/system/user')},
+				{path: 'org', component: () => import('@/views/system/org')},
+				{path: 'role', component: () => import('@/views/system/role')}
 			]
 		}
 	]
